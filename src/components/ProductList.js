@@ -16,6 +16,13 @@ const ProductList = () => {
   }, []);
   if (!products) return <p>Loading businesses and products...</p>;
   return (
+    <div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
     <div id="productlist_id">
       {products.map((product) => (
         <div key={product.id}>
@@ -26,6 +33,7 @@ const ProductList = () => {
           <Link to={`/product/${product.id}`}>View Details</Link>
         </div>
       ))}
+    </div>
     </div>
   );
 };
