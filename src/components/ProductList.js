@@ -14,7 +14,7 @@ const ProductList = () => {
       })
       .catch((error) => console.error("Error fetching products:", error));
   }, []);
-
+  if (!products) return <p>Loading businesses and products...</p>;
   return (
     <div id="productlist_id">
       {products.map((product) => (
