@@ -5,16 +5,23 @@ import './ProductList.css'
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get("https://bizapp-40fj.onrender.com/api/products/")
       .then((response) => {
         setProducts(response.data);
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching products:", error));
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) return <p>Loading...</p>;
   if (!products) return <p>Loading businesses and products...</p>;
+
   return (
     <div>
       <nav>
