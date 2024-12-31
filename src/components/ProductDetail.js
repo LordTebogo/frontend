@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Base from './base';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -17,12 +18,14 @@ const ProductDetail = () => {
   if (!product) return <p>Loading product details...</p>;
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <p>{product.description}</p>
-      <p>Price: R{product.price}</p>
-      <img src={product.image} alt="product" style={{ width: '100px', height: '100px' }}></img>
-    </div>
+    <Base>
+      <div>
+        <h1>{product.name}</h1>
+        <p>{product.description}</p>
+        <p>Price: R{product.price}</p>
+        <img src={product.image} alt="product" style={{ width: '100px', height: '100px' }}></img>
+      </div>
+    </Base>
   );
 };
 
