@@ -142,7 +142,7 @@ const Bases = ({ children }) => {
                         </div>
                         {isAuthenticated && profileImage && (
                             <div className="d-flex align-items-center">
-                                <img src={`https://turfbizappapi.onrender.com/${profileImage}`} alt="Profile" className="rounded-circle" width="40" height="40" />
+                                <img src={`https://turfbizappapi.onrender.com${profileImage}`} alt="Profile" className="rounded-circle" width="40" height="40" />
                             </div>
                         )}
                     </header>
