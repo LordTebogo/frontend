@@ -146,7 +146,7 @@ const Homepage = () => {
                     <h1>Welcome to BizApp!</h1>
                     <p>Your premier destination for exceptional property solutions.</p>
                     {!isAuthenticated && (
-                        <a href="/register" className="cta-button">Get Started Today</a>
+                        <Link className="cta-button" to="/register">Get Started Today</Link>
                     )}
                 </div>
             </header>
