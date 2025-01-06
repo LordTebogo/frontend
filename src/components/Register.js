@@ -41,7 +41,7 @@ const Register = () => {
             formDataObj.append(key, formData[key]);
         }
         try {
-            const response = await axios.post('https://bizapp-40fj.onrender.com/api/register/', formDataObj, {
+            const response = await axios.post('https://turfbizappapi.onrender.com/api/register/', formDataObj, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

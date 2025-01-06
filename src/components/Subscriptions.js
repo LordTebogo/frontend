@@ -10,7 +10,7 @@ const Subscriptions = () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('https://bizapp-40fj.onrender.com/api/user/me/', {
+                    const response = await axios.get('https://turfbizappapi.onrender.com/api/user/me/', {
                         headers: {
                             'Authorization': `Token ${token}`
                         }

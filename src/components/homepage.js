@@ -72,7 +72,7 @@ const Homepage = () => {
     useEffect(() => {
         const fetchResidences = async () => {
             try {
-                const response = await axios.get('https://bizapp-40fj.onrender.com/api/residences/');
+                const response = await axios.get('https://turfbizappapi.onrender.com/api/residences/');
                 setResidences(response.data);
                 setFilteredResidences(response.data);
             } catch (error) {
@@ -86,7 +86,7 @@ const Homepage = () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('https://bizapp-40fj.onrender.com/api/user/me/', {
+                    const response = await axios.get('https://turfbizappapi.onrender.com/api/user/me/', {
                         headers: {
                             'Authorization': `Token ${token}`
                         }

@@ -22,7 +22,7 @@ const Bases = ({ children }) => {
         setLoading(true);
         setMessage('');
         try {
-            await axios.post('https://bizapp-40fj.onrender.com/api/logout/', {}, {
+            await axios.post('https://turfbizappapi.onrender.com/api/logout/', {}, {
                 headers: {
                     'Authorization': `Token ${localStorage.getItem('token')}`
                 }
@@ -42,7 +42,7 @@ const Bases = ({ children }) => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get('https://bizapp-40fj.onrender.com/api/user/me/', {
+                    const response = await axios.get('https://turfbizappapi.onrender.com/api/user/me/', {
                         headers: {
                             'Authorization': `Token ${token}`
                         }
@@ -121,7 +121,7 @@ const Bases = ({ children }) => {
                         </div>
                         {isAuthenticated && profileImage && (
                             <div className="d-flex align-items-center">
-                                <img src={`https://bizapp-40fj.onrender.com/${profileImage}`} alt="Profile" className="rounded-circle" width="40" height="40" />
+                                <img src={`https://turfbizappapi.onrender.com/${profileImage}`} alt="Profile" className="rounded-circle" width="40" height="40" />
                                 <span className="ml-2">{username}</span>
                             </div>
                         )}

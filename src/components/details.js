@@ -11,7 +11,7 @@ const ProductDetails = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://127.0.0.1:8000/api/residences/${id}/`);
+                const response = await axios.get(`https://turfbizappapi.onrender.com/api/residences/${id}/`);
                 setProduct(response.data);
             } catch (error) {
                 console.error('Error fetching product:', error);
@@ -85,7 +85,7 @@ const ProductDetails = () => {
                                 disablePictureInPicture 
                                 controls
                             >
-                                <source src={`http://127.0.0.1:8000/api/stream_video/${video.id}/`} type="video/mp4" />
+                                <source src={`https://turfbizappapi.onrender.com/api/stream_video/${video.id}/`} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>

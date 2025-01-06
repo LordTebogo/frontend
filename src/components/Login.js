@@ -20,7 +20,7 @@ const Login = () => {
 
     const getUserDetails = async (token) => {
         try {
-            const response = await axios.get('https://bizapp-40fj.onrender.com/api/user/me/', {
+            const response = await axios.get('https://turfbizappapi.onrender.com/api/user/me/', {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
@@ -37,7 +37,7 @@ const Login = () => {
         setLoading(true);
         setMessage('');
         try {
-            const response = await axios.post('https://bizapp-40fj.onrender.com/api/login/', formData);
+            const response = await axios.post('https://turfbizappapi.onrender.com/api/login/', formData);
             const token = response.data.token;
             localStorage.setItem('token', token);
             console.log('Login successful:', response.data);

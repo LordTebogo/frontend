@@ -17,7 +17,7 @@ const Dashboard = () => {
         }
 
         // Fetch user data
-        axios.get('https://bizapp-40fj.onrender.com/api/user/me/', {
+        axios.get('https://turfbizappapi.onrender.com/api/user/me/', {
             headers: {
                 'Authorization': `Token ${token}`
             }
@@ -26,7 +26,7 @@ const Dashboard = () => {
             const userData = response.data;
             setUser(userData);
             // Fetch residences associated with the user
-            return axios.get(`https://bizapp-40fj.onrender.com/api/residences/`, {
+            return axios.get(`https://turfbizappapi.onrender.com/api/residences/`, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
@@ -53,7 +53,7 @@ const Dashboard = () => {
             return;
         }
 
-        axios.delete(`https://bizapp-40fj.onrender.com/api/residences/${id}/`, {
+        axios.delete(`https://turfbizappapi.onrender.com/api/residences/${id}/`, {
             headers: {
                 'Authorization': `Token ${token}`
             }

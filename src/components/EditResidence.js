@@ -36,7 +36,7 @@ const EditResidence = () => {
             const token = localStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await axios.get(`https://bizapp-40fj.onrender.com/api/residences/${id}/`, {
+                    const response = await axios.get(`https://turfbizappapi.onrender.com/api/residences/${id}/`, {
                         headers: {
                             'Authorization': `Token ${token}`
                         }
@@ -144,7 +144,7 @@ const EditResidence = () => {
         }
 
         try {
-            await axios.put(`https://bizapp-40fj.onrender.com/api/residences/${id}/`, residenceData, {
+            await axios.put(`https://turfbizappapi.onrender.com/api/residences/${id}/`, residenceData, {
                 headers: {
                     'Authorization': `Token ${token}`,
                     'Content-Type': 'multipart/form-data'
