@@ -96,6 +96,7 @@ const AddResidence = () => {
             return;
         }
 
+        // Subscription checks
         if (!subscriptionStatus.is_on_premium) {
             if (!subscriptionStatus.is_images_subscribed && formData.images.length > 3) {
                 setMessage('Only subscribed users can upload more than 3 images.');
@@ -112,12 +113,14 @@ const AddResidence = () => {
             }
         }
 
+        // Business contact validation
         if (formData.business_contacts.length !== 10) {
             setMessage('Business contact must be exactly 10 digits.');
             setLoading(false);
             return;
         }
 
+        // Prepare form data for submission
         const residenceData = new FormData();
         for (const key in formData) {
             if (key === 'images' || key === 'videos') {
@@ -132,7 +135,7 @@ const AddResidence = () => {
         }
 
         try {
-            await axios.post('https://turfbizappapi.onrender.com/api/submit-residence/', residenceData, {
+            const response = await axios.post('https://turfbizappapi.onrender.com/api/submit-residence/', residenceData, {
                 headers: {
                     'Authorization': `Token ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -205,14 +208,11 @@ const AddResidence = () => {
                     <input type="email" name="business_email" value={formData.business_email} onChange={handleChange} required className="form-control" />
                 </div>
                 <div className="form-group">
-                    <label>only allowed to upload up to 3 images, no video, check subscriptions page</label>
-                </div>
-                <div className="form-group">
-                    <label>Images:</label>
+                    <label>Images (Only 3 allowed unless subscribed):</label>
                     <input type="file" name="images" accept="image/*" multiple onChange={handleChange} className="form-control-file" />
                 </div>
                 <div className="form-group">
-                    <label>Videos:</label>
+                    <label>Videos (Only if subscribed):</label>
                     <input type="file" name="videos" accept="video/*" multiple onChange={handleChange} className="form-control-file" />
                 </div>
                 <button type="submit" disabled={loading} className="btn btn-primary">

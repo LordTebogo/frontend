@@ -65,6 +65,7 @@ const EditResidence = () => {
                     });
                 } catch (error) {
                     console.error('Error fetching residence data:', error);
+                    setMessage('Error fetching residence data.');
                 }
             }
         };
