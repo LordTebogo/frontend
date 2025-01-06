@@ -83,6 +83,9 @@ const Register = () => {
                 <input type="text" name="phone" placeholder="Phone" onChange={handleChange} className="form-control" />
             </div>
             <div className="form-group">
+                <h3>insert profile image below</h3>
+            </div>
+            <div className="form-group">
                 <input type="file" name="profile_image" onChange={handleFileChange} className="form-control-file" />
             </div>
             <div className="form-group">
