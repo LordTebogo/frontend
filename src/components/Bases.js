@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Base.css';
 
-const Base = ({ children }) => {
+
+const Bases = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [profileImage, setProfileImage] = useState(null);
     const [username, setUsername] = useState('');
@@ -140,4 +141,4 @@ const Base = ({ children }) => {
     );
 };
 
-export default Base;
+export default Bases;

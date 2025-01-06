@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Base from './components/Base';
+import Bases from './components/Bases';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
@@ -14,7 +14,7 @@ import AboutUs from './components/AboutUs'; // Import AboutUs component
 const App = () => {
     return (
         <Router>
-            <Base>
+            <Bases>
                 <Routes>
                     <Route path="/" element={<Homepage />} />
                     <Route path="/register" element={<Register />} />
@@ -26,7 +26,7 @@ const App = () => {
                     <Route path="/subscriptions" element={<Subscriptions />} />
                     <Route path="/about-us" element={<AboutUs />} />
                 </Routes>
-            </Base>
+            </Bases>
         </Router>
     );
 };
