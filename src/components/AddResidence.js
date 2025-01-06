@@ -205,6 +205,9 @@ const AddResidence = () => {
                     <input type="email" name="business_email" value={formData.business_email} onChange={handleChange} required className="form-control" />
                 </div>
                 <div className="form-group">
+                    <label>only allowed to upload up to 3 images, no video, check subscriptions page</label>
+                </div>
+                <div className="form-group">
                     <label>Images:</label>
                     <input type="file" name="images" accept="image/*" multiple onChange={handleChange} className="form-control-file" />
                 </div>
