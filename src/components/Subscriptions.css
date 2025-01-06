@@ -1,0 +1,30 @@
+.subscriptions {
+    padding: 20px;
+}
+
+.subscription-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.subscription-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-card h2 {
+    margin-bottom: 10px;
+}
+
+.subscription-card p {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 20px;
+}
