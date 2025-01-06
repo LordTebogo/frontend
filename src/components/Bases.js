@@ -4,12 +4,10 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Base.css';
-import { useLocation } from 'react-router-dom';
 
 const Bases = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [profileImage, setProfileImage] = useState(null);
-    const [username, setUsername] = useState('');
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
@@ -65,7 +63,6 @@ const Bases = ({ children }) => {
                     if (response.status === 200) {
                         setIsAuthenticated(true);
                         setProfileImage(response.data.profile_image);
-                        setUsername(response.data.username);
                     }
                 } catch (error) {
                     setIsAuthenticated(false);
@@ -146,7 +143,6 @@ const Bases = ({ children }) => {
                         {isAuthenticated && profileImage && (
                             <div className="d-flex align-items-center">
                                 <img src={`https://turfbizappapi.onrender.com/${profileImage}`} alt="Profile" className="rounded-circle" width="40" height="40" />
-                                <span className="ml-2">{username}</span>
                             </div>
                         )}
                     </header>
