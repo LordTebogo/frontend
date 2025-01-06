@@ -5,6 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Base.css';
 
+const ToggleButtonIcon = () => (
+    <div className="toggle-button-icon">
+        <span className="line"></span>
+        <span className="line"></span>
+        <span className="line"></span>
+    </div>
+);
+
 const Bases = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [profileImage, setProfileImage] = useState(null);
@@ -136,7 +144,7 @@ const Bases = ({ children }) => {
                     <header className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom header">
                         <div className="d-flex align-items-center">
                             <button className="btn btn-outline-secondary toggle-sidebar-btn" onClick={toggleSidebar}>
-                                <span className="navbar-toggler-icon"></span>
+                                <ToggleButtonIcon />
                             </button>
                             <h1 className="h2 ml-3">Turf Bizness App</h1>
                         </div>
