@@ -4,7 +4,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './Base.css';
-
+import { useLocation } from 'react-router-dom';
 
 const Bases = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -13,7 +13,22 @@ const Bases = ({ children }) => {
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+            if (window.innerWidth >= 768) {
+                setSidebarOpen(true);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const handleLogout = useCallback(async () => {
         if (!isAuthenticated) {
@@ -69,28 +84,37 @@ const Bases = ({ children }) => {
         setSidebarOpen(!sidebarOpen);
     };
 
+    const handleLinkClick = () => {
+        if (isMobile) {
+            setSidebarOpen(false);
+        }
+    };
+
     return (
         <div className="container-fluid">
             <div className="row">
-                <nav className={`col-md-2 d-md-block bg-light sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
+                <nav
+                    className={`col-md-2 d-md-block bg-light sidebar ${sidebarOpen ? 'open' : 'closed'}`}
+                    style={isMobile ? { width: '70%' } : {}}
+                >
                     <div className="sidebar-sticky">
                         <ul className="nav flex-column">
                             <li className="nav-item">
-                                <Link className="nav-link active" to="/">Home</Link>
+                                <Link className="nav-link active" to="/" onClick={handleLinkClick}>Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/about-us">About Us</Link>
+                                <Link className="nav-link" to="/about-us" onClick={handleLinkClick}>About Us</Link>
                             </li>
                             {isAuthenticated ? (
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                                        <Link className="nav-link" to="/dashboard" onClick={handleLinkClick}>Dashboard</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/add-residence">Add Residence</Link>
+                                        <Link className="nav-link" to="/add-residence" onClick={handleLinkClick}>Add Residence</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/subscriptions">Subscriptions</Link>
+                                        <Link className="nav-link" to="/subscriptions" onClick={handleLinkClick}>Subscriptions</Link>
                                     </li>
                                     <li className="nav-item">
                                         <button className="nav-link btn btn-link" onClick={handleLogout} disabled={loading}>
@@ -101,10 +125,10 @@ const Bases = ({ children }) => {
                             ) : (
                                 <>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/login">Login</Link>
+                                        <Link className="nav-link" to="/login" onClick={handleLinkClick}>Login</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link" to="/register">Register</Link>
+                                        <Link className="nav-link" to="/register" onClick={handleLinkClick}>Register</Link>
                                     </li>
                                 </>
                             )}

@@ -169,7 +169,7 @@ const Homepage = () => {
                                     <p><strong>Price:</strong> R{residence.room_price} per room</p>
                                     <p><strong>Rooms:</strong> {residence.number_of_rooms_available}</p>
                                 </div>
-                                <a href={`/details/${residence.id}`} className="details-link">View Details</a>
+                                <Link to={`/details/${residence.id}`} className="details-link">View Details</Link>
                             </div>
                         </div>
                     ))}

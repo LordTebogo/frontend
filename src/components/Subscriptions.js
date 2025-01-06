@@ -36,19 +36,19 @@ const Subscriptions = () => {
 
             <div className="subscription-cards">
                 <div className="subscription-card">
-                    <h2>🌟 Basic Subscription</h2>
+                    <h2>🌟 Basic</h2>
                     <p><strong>R150 per month</strong></p>
                     <p>✔️ Upload more than 3 images.</p>
                     <p>✔️ Enhance your property listing with more visuals.</p>
                 </div>
                 <div className="subscription-card">
-                    <h2>🚀 Standard Subscription</h2>
+                    <h2>🚀 Standard</h2>
                     <p><strong>R300 per month</strong></p>
                     <p>✔️ Upload videos to showcase your residence.</p>
                     <p>✔️ Attract more interest with multimedia listings.</p>
                 </div>
                 <div className="subscription-card premium">
-                    <h2>👑 Premium Subscription</h2>
+                    <h2>👑 Premium</h2>
                     <p><strong>R500 per month</strong></p>
                     <p>✔️ Upload unlimited images and videos.</p>
                     <p>✔️ Your residence gets priority placement on the homepage.</p>
